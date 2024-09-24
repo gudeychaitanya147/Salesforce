@@ -1,0 +1,666 @@
+
+:host {
+    --dark-blue: #31333F;
+    --light-black: #272b35;
+    --ash: #3D3E42;
+    --white: #F9F9F9;
+    --yellow: #FFC86B;
+    --simplo-regular: 'SimploRegular';
+    --simplo-medium: 'SimploMedium';
+    --slds-c-icon-color-foreground-default: var(--yellow);
+}
+
+@font-face {
+    font-family: 'SimploRegular';
+    src: url('resource/simploWoff2/SimploWOFF2/Simplo-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SimploMedium';
+    src: url('resource/simploWoff2/SimploWOFF2/Simplo-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*.navigator {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--ash);
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.navigator lighthing-icon{
+    margin: 20px;
+}
+
+.navigator div {
+    display: grid;
+    place-content: center;
+}
+
+.navigator div button {
+    margin: 10px;
+    border: 0;
+    font-family: var(--simplo-regular);
+}*/
+
+.banner {
+    max-width: 100vw;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    font-family: var(--simplo-regular);
+    font-size: 2rem;
+    display: grid;
+    place-items: center;
+    justify-content: center;
+}
+
+.navigate {
+    width: 99vw;
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: var(--ash);
+    display: flex;
+    justify-content: space-between;
+}
+
+.navigate div {
+    margin: 30px 50px;
+    font-family: var(--simplo-medium);
+    font-size: 2rem;
+}
+
+.navigate button {
+    margin: 0 20px;
+    border: 0;
+    font-size: 1.5rem;
+    font-family: var(--simplo-regular);
+}
+
+.myself {
+    margin-bottom: 50px;
+    padding: 10vw 15vw;
+    width: 99vw;
+    background-color: var(--ash);
+    box-shadow: 0 5px 30px var(--light-black);
+}
+
+.myself h1 span {
+    padding: 0 20px;
+    font-family: var(--simplo-medium);
+    font-size: 4rem;
+    color: var(--yellow);
+    border-right: 3px solid var(--yellow);
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 2s steps(40, end), blink-caret 0.5s step-end infinite;
+}
+
+@keyframes typing {
+    0% { width: 0 }
+    100% { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--yellow); }
+}
+
+.myself div {
+    padding: 10px;
+    margin: 20px 0;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    border: 5px solid var(--yellow);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.myself div h5{
+    margin: 0 10px;
+    font-family: var(--simplo-medium);
+    font-size: 1.5rem;
+    color: var(--yellow);
+}
+
+.aboutme {
+    display: grid;
+    place-items: center;
+}
+
+.aboutme li {
+    display: flex;
+    place-content: center;
+    font-size: 1.5rem;
+}
+
+.dash {
+    margin: 15px;
+    width: 50px;
+    height: 5px;
+    border-radius: 2px;
+    background-color: var(--yellow);
+    box-shadow: 0 0 30px var(--yellow);
+}
+
+.timeline {
+    filter: drop-shadow(0 5px 10px var(--light-black));
+}
+
+.timeline div {
+    width: 100px;
+    height: 50px;
+    margin: 10px;
+    display: grid;
+    place-content: center;
+    background-color: var(--ash);
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 10% 50%, 0% 0%);
+}
+
+.dotline {
+    display: grid;
+    grid-template-rows: min-content;
+}
+
+.dot {
+    margin: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--yellow);
+    box-shadow: 0 0 30px var(--yellow);
+}
+
+.line {
+    margin: 0 33px;
+    width: 5px;
+    border-radius: 2px;
+    background-color: var(--yellow);
+    box-shadow: 0 0 30px var(--yellow);
+}
+
+.skills {
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.skills div {
+    margin: 20px;
+    padding: 30px;
+    display: grid;
+    place-items: center;
+    background-color: var(--ash);
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    font-family: var(--simplo-medium);
+    box-shadow: 0 0 50px var(--light-black);
+    transition: all 0.1s ease-out;
+}
+
+.skills div:hover {
+    background-color: var(--yellow);
+}
+
+.skills label {
+    top: 10px;
+    position: relative;
+}
+
+.skills img {
+    max-width: 70px;
+}
+
+.projects {
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.projects div {
+    margin: 10px 30px;
+    display: grid;
+    place-items: center;
+    width: 300px;
+    height: 250px;
+    font-size: 1.5rem;
+    font-family: var(--simplo-medium);
+}
+
+.projects img {
+    height: 150px;
+    width: 315px;
+    transition: all 0.1s ease-out;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.projects img:hover {
+    height: 220px;
+}
+
+.experience {
+    top: -75px;
+    width: 99vw;
+    background-color: var(--ash);
+    position: relative;
+    box-shadow: 0 5px 30px var(--light-black);
+}
+
+.experience li {
+    display: flex;
+    place-content: center;
+    font-size: 1.5rem;
+}
+
+.exp-value {
+    margin: 100px 5vw;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.exp-left {
+    width: 250px;
+}
+
+.exp-left span {
+    font-size: 10rem;
+    font-family: var(--simplo-medium);
+}
+
+.exp-mid {
+    width: 5px;
+    background-color: var(--yellow);
+    border-radius: 2px;
+}
+
+.exp-right {
+    width: 300px;
+    display: grid;
+    place-items: center;
+}
+
+.exp-right h4 {
+    font-size: 4rem;
+}
+
+.trailhead {
+    margin-bottom: 100px;
+    width: 80vw;
+    display: flex;
+    justify-content: space-evenly;
+    place-items: center;
+}
+
+.trailhead img {
+    max-width: 500px;
+    filter: drop-shadow(0px 0px 30px grey);
+}
+
+.trailhead h4 {
+    color: var(--yellow);
+}
+
+.certifications {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.certifications img {
+    max-width: 250px;
+    filter: drop-shadow(0px 0px 30px grey);
+}
+
+.education {
+    max-width: 90vw;
+}
+
+.education li, .hobbies li{
+    display: flex;
+    font-size: 1.5rem;
+}
+
+.split-line {
+    height: 410px;
+    width: 99vw;
+    top: -80px;
+    position: relative;
+    background: linear-gradient(90deg, var(--yellow) 30%, transparent 35%, transparent 65%, var(--yellow) 70%);
+}
+
+.contacts {
+    height: 400px;
+    display: grid;
+    place-items: center;
+    background-color: var(--ash);
+    position: relative;
+    top: 5px;
+}
+
+.contacts header {
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gmail, .phone, .locale {
+    margin: 10px;
+    display: flex;
+    place-items: center;
+    background-color: var(--dark-blue);
+    width: 450px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-family: var(--simplo-regular);
+    cursor: pointer;
+}
+
+.contacts lightning-icon {
+    padding: 25px;
+}
+
+.contact-icons {
+    top: -115px;
+    width: 350px;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.contact-icons img {
+    max-width: 40px;
+    cursor: pointer;
+}
+
+.text-left {
+    justify-self: left;
+}
+
+.padding-bot-large {
+    padding-bottom: 100px;
+}
+
+h1 {
+    width: 550px;
+    font-size: 2.5rem;
+    font-family: math;
+    display: flex;
+    place-items: baseline;
+}
+
+h2 {
+    padding: 10px;
+    width: 600px;
+    font-family: var(--simplo-medium);
+}
+
+h3 {
+    margin: 30px 150px;
+    font-size: 4rem;
+    font-family: math;
+    font-weight: bold;
+    z-index: 1;
+}
+
+h4 {
+    margin-bottom: 20px;
+    font-size: 3rem;
+    font-family: var(--simplo-medium);
+}
+
+button {
+    background-color: var(--ash);
+}
+
+h5 {
+    cursor: pointer;
+}
+
+li p {
+    max-width: 80vw;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+span {
+    color: var(--yellow);
+    font-size: 1.7rem;
+}
+
+
+@media screen and (max-width: 850px) {
+   
+.banner {
+    max-width: 100vw;
+    font-size: 1rem;
+}
+
+/*.navigate {
+    width: 99vw;
+    font-size: 1.5rem;
+}*/
+
+.navigate div {
+    margin: 15px 25px;
+    font-size: 1rem;
+}
+
+.myself {
+    margin-bottom: 25px;
+    padding: 10vw;
+    width: 100vw;
+    
+}
+
+.myself h1 span {
+    padding: 0 10px;
+    font-size: 2rem;
+}
+
+.myself div {
+    padding: 5px;
+    margin: 10px 0;
+    width: 100px;
+    border: 3px solid var(--yellow);
+    border-radius: 5px;
+}
+
+.myself div h5{
+    margin: 0 5px;
+    font-size: 0.8rem;
+}
+
+.aboutme li {
+    font-size: 0.8rem;
+}
+
+.dash {
+    margin: 7px;
+    width: 25px;
+    height: 3px;
+}
+
+.timeline div {
+    width: 50px;
+    height: 25px;
+    margin: 5px;
+}
+
+.dot {
+    margin: 10px;
+    width: 15px;
+    height: 15px;
+}
+
+.line {
+    margin: 0 15px;
+    width: 3px;
+}
+
+.skills {
+    width: 90vw;
+}
+
+.skills div {
+    margin: 10px;
+    padding: 10px;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.skills label {
+    top: 0px;
+}
+
+.skills img {
+    max-width: 35px;
+}
+
+.projects {
+    width: 90vw;
+}
+
+.projects div {
+    margin: 0;
+    width: 300px;
+    height: 250px;
+    font-size: 1.5rem;
+}
+
+.projects img {
+    height: 150px;
+    width: 315px;
+}
+
+.projects img:hover {
+    height: 220px;
+}
+
+.experience {
+    top: -37px;
+    width: 100vw;
+}
+
+.experience li {
+    font-size: 0.8rem;
+}
+
+.exp-value {
+    margin: 50px 5vw;
+}
+
+.exp-left {
+    width: 130px;
+}
+
+.exp-left span {
+    font-size: 5rem;
+}
+
+.exp-mid {
+    width: 3px;
+}
+
+.exp-right {
+    width: 150px;
+}
+
+.exp-right h4 {
+    font-size: 1.5rem;
+}
+
+.trailhead {
+    margin-bottom: 50px;
+    width: 80vw;
+}
+
+.trailhead img {
+    max-width: 70px;
+}
+
+.certifications img {
+    max-width: 100px;
+}
+
+.education li, .hobbies li{
+    font-size: 0.8rem;
+}
+
+.split-line {
+    height: 256px;
+    width: 100vw;
+    top: -40px;
+    background: linear-gradient(90deg, var(--yellow) 25%, transparent 30%, transparent 70%, var(--yellow) 75%);
+}
+
+.contacts {
+    height: 250px;
+    top: 3px;
+}
+
+.contacts header {
+    width: 90vw;
+}
+
+.gmail, .phone, .locale {
+    margin: 5px;
+    width: 250px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+.contacts lightning-icon {
+    padding: 10px;
+}
+
+.contact-icons {
+    top: -55px;
+    width: 150px;
+}
+
+.contact-icons img {
+    max-width: 20px;
+}
+
+.padding-bot-large {
+    padding-bottom: 50px;
+}
+
+h1 {
+    width: 280px;
+    font-size: 1.5rem;
+}
+
+h2 {
+    padding: 5px;
+    width: 300px;
+}
+
+h3 {
+    margin: 15px 75px;
+    font-size: 2rem;
+}
+
+h4 {
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+}
+
+li p {
+    max-width: 80vw;
+    margin-bottom: 20px;
+}
+}

@@ -1,0 +1,55 @@
+:host {
+    --pixel-15: 15px;
+}
+
+.noteBox-app {
+    font-size: var(--pixel-15);
+    padding: var(--pixel-15);
+}
+
+.noteBox-card {
+    background-color: white;
+    height: 300px;
+    width: 300px;
+    border-radius: var(--pixel-15);
+    box-shadow: 0 10px 20px -10px;
+}
+
+.title {
+    background: dodgerblue;
+    border-radius: var(--pixel-15) var(--pixel-15) 0 0;
+    border-bottom: 2px solid;
+    padding: 5px 10px;
+    color: white;
+    font-weight: bold;
+    font-size: var(--pixel-15);
+    text-shadow: 1px 1px black;
+    height: 40px;
+    align-content: center;
+}
+
+.describe {
+    height: 215px;
+    padding: 5px 10px;
+}
+
+.utils {
+    justify-content: space-between;
+    display: flex;
+    height: 45px;
+    padding: 5px;
+    border-top: 2px solid;
+    background-color: lightgrey;
+    border-radius: 0 0 15px 15px
+}
+
+.icons {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.datetime {
+    align-content: center;
+    padding: 5px;
+    font-weight: bold;
+}

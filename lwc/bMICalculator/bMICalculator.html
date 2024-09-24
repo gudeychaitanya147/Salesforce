@@ -1,0 +1,33 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <div class="app">
+        <div class="bmi">
+            <header>
+                <h1>BMI</h1>
+                <h3>Body Mass Index</h3>
+            </header>
+            <div class="calculate">
+                <form onsubmit={submitHandler}>
+                    <div>
+                        <h2>HEIGHT</h2>
+                        <input type="number" placeholder={initial.cms} step=0.1 maxlength="5" required onchange={heightChange}/>
+                    </div>
+                    <div>
+                        <h2>WEIGHT</h2>
+                        <input type="number" placeholder={initial.kgs} step=0.1 maxlength="5" required onchange={weightChange}/>
+                    </div>
+                    <footer>
+                        <div>
+                            <h4>{bmi}</h4>
+                            <h2>BMI</h2>
+                        </div>
+                        <h2>{result}</h2>
+                        <div class="scale-sign"></div>
+                        <div class="scale"></div>
+                    </footer>
+                    <button class="slds-button">Calculate</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,15 @@
+<template>
+    <div class="noteBox-app">
+        <div class="noteBox-card">
+            <div class="title">{noteTitle}</div>
+            <div class="describe">{noteDescribe}</div>
+            <div class="utils">
+                <div class="datetime">{lastModified}</div>
+                <div>
+                    <lightning-icon class="icons" icon-name="action:edit" alternative-text="Edit" title="Edit" size="xx-small" onclick={editRecord}></lightning-icon>
+                    <lightning-icon class="icons" icon-name="action:delete" alternative-text="Delete" title="Delete" size="xx-small" onclick={deleteRecord}></lightning-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

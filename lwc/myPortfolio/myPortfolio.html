@@ -1,0 +1,172 @@
+<template>
+<!--    
+    <div if:true={openedNavi} class="navigator">
+        <lightning-icon icon-name="utility:close" alternative-text="=" size="small" onclick={openNavi}></lightning-icon>
+        <div>
+            <button onclick={gotoAbout}> <h5>About</h5> </button>
+            <button onclick={gotoProjects}> <h5>Projects</h5> </button>
+            <button onclick={gotoExperience}> <h5>Expertise</h5> </button>
+            <button onclick={gotoEducation}> <h5>Biodata</h5> </button>
+        </div>
+    </div>
+-->
+    <div class="banner">
+        <div class="navigate">
+            <div>Portfolio.</div>
+            <div if:false={navigate}>
+                <button onclick={gotoAbout}> <h5>About</h5> </button>
+                <button onclick={gotoProjects}> <h5>Projects</h5> </button>
+                <button onclick={gotoExperience}> <h5>Expertise</h5> </button>
+                <button onclick={gotoEducation}> <h5>Biodata</h5> </button>
+            </div>
+        </div>
+        <div class="myself">
+            <h1>I'M<span>{username}</span></h1>
+            <h2>{designation}</h2>
+            <div onclick={downloadResume}>
+                <lightning-icon icon-name="utility:download" alternative-text="O" size="x-small"></lightning-icon>
+                <h5>Resume</h5>
+            </div>
+        </div>
+
+        <div class="about-scrol"></div>
+        <h3 class="text-left">About Me</h3>
+        <div class="aboutme padding-bot-large">
+            <ul> 
+                <li> <div class="dash"></div> <p></p> </li>
+                <li> <div class="dash"></div> <p></p> </li>
+            </ul>
+        </div>
+        <h3>My Skills</h3>
+        <div class="skills padding-bot-large">
+            <div key={logo} for:item="logo" for:each={logos}>
+                <img src={logo.image} alt="O" />
+                <label> {logo.name} </label>
+            </div>
+        </div>
+
+        <div class="project-scrol"></div>
+        <h3>Projects</h3>
+        <div class="projects padding-bot-large">
+            <div key={item} for:item="item" for:each={projects}>
+                <img src={item.image} alt="O" onclick={openProject}/>
+                <label> {item.name} </label>
+            </div>
+        </div>
+
+        <div class="experience-scrol"></div>
+        <h3 class="text-left">Experience</h3>
+        <div class="experience padding-bot-large">
+            <div class="exp-value"> 
+                <div class="exp-left"> 
+                    <span>{yearsofexp}</span> <p> Years of expreience in working </p>
+                </div>
+                <div class="exp-mid"></div>
+                <div class="exp-right">
+                    <h4>PeopleSoft</h4>
+                    <h4>Salesforce</h4>
+                </div>
+            </div>
+            <ul>
+                <li> <div class="dot"></div>
+                    <div class="pslist"> <h4>Peoplesoft</h4> 
+                        <div> <p></p> </div>
+                        <div> <p></p> </div>
+                    </div>
+                </li>
+                <li> <div class="dot"></div>
+                    <div class="sflist"> <h4>Salesforce</h4> 
+                        <div> <p></p> </div>
+                        <div> <p></p> </div>
+                    </div>
+                </li>
+                <li> <div class="dot"></div>
+                    <div class="autolist"> <h4>Automation</h4> 
+                        <div> <p></p> </div>
+                        <div> <p></p> </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <h3>Achievements</h3>
+        <div class="achievements padding-bot-large">
+            <h4 class="text-left">Trailhead</h4>
+            <div class="trailhead">
+                <img src={badge} alt="O" />
+                <div>
+                    <h4>{tallyCount.badge}</h4>
+                    <label>Badges</label>
+                </div>
+                <div>
+                    <h4>{tallyCount.point}</h4>
+                    <label>Points</label>
+                </div>
+                <div>
+                    <h4>{tallyCount.trail}</h4>
+                    <label>Trails</label>
+                </div>
+            </div>
+            <h4 class="text-left">Certifications</h4>
+            <div class="certifications">
+                <img src={pdevcert} alt="O" />
+                <img src={admincert} alt="O" />
+            </div>
+        </div>
+
+        <div class="education-scrol"></div>
+        <h3 class="text-left">Education</h3>
+        <div class="education padding-bot-large">
+            <div>
+                <ul>
+                    <li> <div class="timeline"> <div>{btech.year}</div> </div> 
+                        <div class="dotline"> <div class="dot"></div> <div class="line"></div> </div>
+                        <div class="btech"> <h4>{btech.type}</h4> <p></p> </div>
+                    </li>   
+                    <li> <div class="timeline"> <div>{hsc.year}</div> </div> 
+                        <div class="dotline"> <div class="dot"></div> <div class="line"></div> </div>
+                        <div class="hsc"> <h4>{hsc.type}</h4> <p></p> </div>
+                    </li>
+                    <li> <div class="timeline"> <div>{ssc.year}</div> </div> 
+                        <div class="dotline"> <div class="dot"></div> <div class="line"></div> </div>
+                        <div class="ssc"> <h4>{ssc.type}</h4> <p></p> </div>
+                    </li>
+                </ul>    
+            </div>
+        </div>
+
+        <h4>Hobbies</h4>
+        <div class="hobbies padding-bot-large">
+            <ul>
+                <li> <div class="dash"></div> <p></p> </li>
+                <li> <div class="dash"></div> <p></p> </li>
+                <li> <div class="dash"></div> <p></p> </li>
+            </ul>
+        </div>
+
+        <h3>Contact Me</h3>
+        <div class="split-line">
+            <div class="contacts">
+                <header>
+                <div class="gmail" onclick={copyGmail}>
+                    <lightning-icon icon-name={gmail.icon} alternative-text="O" size="small"></lightning-icon>
+                    <h5>{gmail.name}</h5>
+                </div>
+                <div class="phone" onclick={copyPhone}>
+                    <lightning-icon icon-name={phone.icon} alternative-text="O" size="small"></lightning-icon>
+                    <h5>{phone.name}</h5>
+                </div>
+                <div class="locale" onclick={copyLocale}>
+                    <lightning-icon icon-name={locale.icon} alternative-text="O" size="small"></lightning-icon>
+                    <h5>{locale.name}</h5>
+                </div>
+                </header>
+            </div>
+        </div>
+        <div class="contact-icons">
+            <div key={icon} for:item="icon" for:each={socialMediaLinks}>
+                <img src={icon.image} title={icon.link} alt="O" onclick={openProfile}></img>
+            </div>
+        </div>
+    </div>
+</template>
