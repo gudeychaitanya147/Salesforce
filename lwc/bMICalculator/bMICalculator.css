@@ -1,0 +1,196 @@
+:host() {
+    --tomato-dark: #BF1E2D;
+    --tomato: #EF5929;
+    --tomato-light: #F47A53;
+    --almost-white: #fdd1d1;
+}
+
+.app {
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    height: 100vh;
+    font-family: system-ui;
+    background: linear-gradient(45deg, var(--almost-white), var(--tomato-light));
+}
+
+.bmi {
+    height: 300px;
+    width: 700px;
+    display: flex;
+    background: linear-gradient(45deg, var(--tomato-light), var(--tomato-dark));
+    box-shadow: 0px 10px 50px -20px;
+}
+
+.calculate {
+    height: 500px;
+    width: 300px;
+    position: relative;
+    bottom: 100px;
+    left: 50px;
+    background-color: white;
+    box-shadow: 0px 10px 50px -30px;
+}
+
+form {
+    padding: 25px 0;
+    display: grid;
+    place-items: center;
+    height: inherit;
+}
+
+input {
+    height: 60px;
+    width: 200px;
+    border: 0;
+    opacity: 0.8;
+    font-size: 50px;
+    font-weight: bold;
+    border-bottom: 3px solid;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input::placeholder {
+    opacity: 0.5;
+}
+
+input:focus {
+    outline: 0;
+}
+
+footer div {
+    width: 200px;
+    display: flex;
+    place-items: end;
+}
+
+.scale {
+    height: 15px;
+    background: linear-gradient(90deg, orange 30%, green 35%, green 40%, orange 45%, orange 65%, red 70%);
+}
+
+.scale-sign {
+    height: 15px;
+    max-width: 15px;
+    position: relative;
+    left: 37.7%;
+    background-color: black;
+    clip-path: polygon(100% 0%, 50% 100%, 0% 0%);
+}
+
+button {
+    height: 50px;
+    width: 200px;
+    display: grid;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: tomato;
+}
+
+button:hover, button:focus {
+    color: white;
+    background-color: tomato;
+}
+
+h1 {
+    margin: 0 40px;
+    font-size: 100px;
+    font-weight: bold;
+    color: white;
+}
+
+footer h2 {
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+h3 {
+    margin: 0 45px;
+    font-size: 30px;
+    color: white;
+}
+
+h4 {
+    margin-right: 5px;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+
+@media only screen and (max-width: 700px) {
+    
+    .bmi {
+        height: 200px;
+        width: 350px;
+    }
+    
+    .calculate {
+        height: 300px;
+        width: 200px;
+        bottom: 50px;
+        left: -15px;
+    }
+    
+    form {
+        padding: 15px 0;
+    }
+    
+    input {
+        height: 35px;
+        width: 150px;
+        font-size: 25px;
+    }
+            
+    footer div {
+        width: 150px;
+    }
+    
+    .scale {
+        height: 10px;
+    }
+    
+    .scale-sign {
+        height: 10px;
+        max-width: 10px;
+    }
+    
+    button {
+        height: 30px;
+        width: 150px;
+        font-size: 10px;
+    }
+
+    h1 {
+        margin: 0 20px;
+        font-size: 50px;
+    }
+    
+    footer h2 {
+        margin-bottom: 10px;
+    }
+    
+    h2 {
+        font-size: 10px;
+    }
+    
+    h3 {
+        margin: 0 25px;
+        font-size: 15px;
+    }
+    
+    h4 {
+        margin-right: 5px;
+        font-size: 35px;
+    }  
+}
+

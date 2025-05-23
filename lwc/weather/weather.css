@@ -1,0 +1,100 @@
+:host {
+    --purple: #8665D6;
+    --light-purple: #C69FE3;
+    --light-pink: #F8D7DA;
+    --light-green: #CCEBD4;
+    --red: #ED2144;
+}
+
+.weather-app {
+    background: linear-gradient(45deg, var(--light-purple), var(--purple));
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.weather-card {
+    background: white;
+    max-width: 400px;
+    min-width: 350px;
+    border-radius: 10px;
+}
+
+.slds-gutters {
+    padding: 15px 0;
+}
+
+.first {
+    border-right: 2px solid grey;
+}
+
+.main-degree {
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.big-image {
+    max-width: 100px;
+}
+
+.boldIt {
+    font-weight: bold;
+}
+
+.display {
+    padding: 30px 0;
+    border-bottom: 2px solid grey;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.error-loading {
+    background-color: var(--light-pink);
+    color: brown;
+    margin: 15px;
+    border-radius: 5px;
+    text-align: left;
+    padding: 10px;
+}
+
+.loading {
+    background-color: var(--light-green);
+    color: green;
+    margin: 15px;
+    border-radius: 5px;
+    text-align: left;
+    padding: 10px;
+}
+
+header {
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px 0;
+    border-bottom: 2px solid grey;
+}
+
+input {
+    width: -webkit-fill-available;
+    margin: 10px 15px;
+    text-align: center;
+}
+
+button{
+    width: -webkit-fill-available;
+    margin: 15px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: var(--red);
+}
+
+input {
+    height: 50px;
+    font-size: 20px;
+    margin: 20px 15px 10px;
+    border-radius: 5px;
+}
