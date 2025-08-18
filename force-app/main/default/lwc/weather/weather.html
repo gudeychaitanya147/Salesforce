@@ -1,0 +1,42 @@
+<template>
+    <div class="weather-app"> 
+        <div class="weather-card">
+            <header>
+                <h1> 
+                    <img if:true={displayResult} src={icons.arrow} alt="Back" onclick={returntoHome} class="cursor"/> Weather App
+                </h1>
+            </header>
+            <div if:true={loadingState} class={loadingClass}>{loading}</div>
+            <section if:false={displayResult}>
+                <form onsubmit={submitHandler}>
+                    <input type="text" placeholder="Enter City Name" onkeyup={changeHandler} />
+                    <button class="slds-button slds-button_destructive" type="submit"> Search </button>
+                </form>
+            </section>
+            <section if:true={displayResult}>
+                <div class="display">
+                    <img src={res.icon} alt="O" class="big-image" />
+                    <div class="main-degree">{res.temp}°C</div>
+                    <div class="slds-p-bottom_medium boldIt">{res.describe}</div>
+                    <div>
+                        <img src={icons.map} alt="O" /> {res.city}, {res.country}
+                    </div>
+                </div>
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col first">
+                        <div class="boldIt">
+                            <img src={icons.thermo} alt="T" /> {res.feels}°C
+                        </div>
+                        <div>Feels Like</div>
+                    </div>
+                    <div class="slds-col">
+                        <div class="boldIt">
+                            <img src={icons.droplet} alt="U" /> {res.humidity}%
+                        </div>
+                        <div>Humidity</div>                  
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</template>

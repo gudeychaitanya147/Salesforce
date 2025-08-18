@@ -1,0 +1,312 @@
+<template>
+    <div class="application dark-mode large-font">
+
+    <div class="navigation-slide darker-tile">
+        <div class="navigation container flex-box fg-index justify-between">
+            <ul class="btn-list huge-font">
+                <li key={item} for:item="item" for:each={navData}> <a href="#" data-id={item.id} onclick={gotoPage}>{item.name}</a> </li>
+<!--                <li> <img src={themeIcon} alt="theme" class="theme-icon" onclick={changeTheme}> </li> -->
+            </ul>
+            <lightning-icon icon-name="utility:close" name="slider" alternative-text="*" size="small" onclick={closeNav}></lightning-icon>
+        </div>
+    </div>
+
+    <div class="banner"> <div>
+        <div class="title-card darker-tile">
+            <div class="img-bg"> <img src={profileBackground} alt="BG"> </div>
+            <div class="essentials bg-index">
+                <img src={hollowCircle} alt="Design" class="inverted-shape circle1">
+                <img src={hollowCircle} alt="Design" class="inverted-shape circle1-1">
+                <img src={slashLines} alt="Design" class="inverted-shape slash-lines1">         
+            </div>
+            <div class="navigation container flex-box fg-index">
+                <div class="huge-font">Portfolio.</div>
+                <ul class="flex-box btn-list small-font">
+                    <li key={item} for:item="item" for:each={navData}> <a href="#" data-id={item.id} onclick={gotoPage}>{item.name}</a> </li>
+<!--                    <li> <img src={themeIcon} alt="theme" class="theme-icon" onclick={changeTheme}> </li> -->
+                    <lightning-icon icon-name="utility:rows" name="slider" alternative-text="=" size="small" onclick={openNav}></lightning-icon>
+                </ul>
+            </div>
+            <div class="profile container fg-index">
+                <div class="username">
+                    <div>
+                        <p>Hey, I'm</p>
+                        <h1 class="title animate-type">{username}</h1>
+                    </div>
+                    <p>{designation}</p>
+                    <a href="#" class="btn small-font" onclick={downloadResume}>Download CV</a> 
+                </div>
+            </div> 
+        </div>
+
+        <div class="navigation-fixed darker-tile">
+            <div class="navigation container flex-box fg-index justify-between">
+                <div class="large-font">Portfolio.</div>
+                <ul class="flex-box btn-list small-font">
+                    <li key={item} for:item="item" for:each={navData}> <a href="#" data-id={item.id} onclick={gotoPage}>{item.name}</a> </li>
+<!--                    <li> <img src={themeIcon} alt="theme" class="theme-icon" onclick={changeTheme}> </li> -->
+                </ul>
+            </div>
+        </div>
+        
+        <div class="about-scroll huge-gap-between"></div>
+
+        <div class="about container fg-index">
+            <div class="about-me">
+                <div class="heading-box"> <h2>About Me</h2> </div>
+                <div class="gap-between"></div>
+                <div class="grid-box">
+                    <ul> 
+                        <li class="pointer-para normal-font" key={item} for:item="item" for:each={aboutme}> <div class="dash"></div> 
+                            <p> <span key={i} class={i.mark} for:each={item} for:item="i">{i.text}</span> </p> 
+                        </li>
+                    </ul>
+                    <div class="picture flex-box">
+                        <img class="profilePic" src={profilePic} alt="pic"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gap-between"></div>
+            <div class="skills justify-center">
+                <h2>Skills</h2> <div class="underline"></div>
+                <div class="small-gap-between"></div>
+                <div class="skills-set flex-box justify-evenly">
+                    <div class="skill-block flex-box" key={item.id} for:item="item" for:each={skills}>
+                        <img src={item.image} alt="Icon">
+                        <div class="skill-bar">
+                            <div class="skill-name flex-box justify-between normal-font" data-id={item.id}> 
+                                <p>{item.name}</p> <p>{item.rate}</p> 
+                            </div>
+                            <div class="progress"> <div data-id={item.id}></div> </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gap-between"></div>
+        <div class="project-scroll gap-between"></div>
+        <div class="proj-bg darker-tile">
+            <div class="essentials bg-index">
+                <img src={hollowCircle} alt="Design" class="inverted-shape circle1">
+                <img src={hollowCircle} alt="Design" class="inverted-shape circle1-1">
+                <img src={fillTriangle} alt="Design" class="inverted-shape triangle2">
+            </div>
+        </div>
+
+        <div class="gap-between"></div>
+
+        <div class="projects container fg-index">
+            <h2>Projects</h2> <div class="underline"></div>
+            <div class="small-gap-between"></div>
+            <ul class="flex-box justify-evenly btn-list small-font">
+                <li> <a class="filter btn" onclick={selectProjectCategory} data-category="ALL" href="#">ALL</a> </li>
+                <li> <a class="filter" onclick={selectProjectCategory} data-category="LWC" href="#">LWC</a> </li>
+                <li> <a class="filter" onclick={selectProjectCategory} data-category="API" href="#">API</a> </li>
+                <li> <a class="filter" onclick={selectProjectCategory} data-category="APP" href="#">APP</a> </li>
+            </ul>
+            <div class="small-gap-between"></div>
+            <div class="projects-block">
+                <div class="project-items animate-up" key={item.id} for:item="item" for:each={filteredProjects}>
+                    <div class="image-block fg-index" data-id={item.id} onclick={openProject}>
+                        <img class="neg-index" src={item.image} alt="Project">
+                        <div class="darker-tile neg-index"></div>
+                        <div class="project-desc neg-index">
+                            <label>{item.name}</label>
+                            <p class="small-font">{item.desc}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="large-gap-between"></div>
+
+        <div class="achievements container">
+            <h2>Achievements</h2> <div class="underline"></div>
+            <div class="small-gap-between"></div>
+            <h3>Trailhead</h3>
+            <div class="small-gap-between"></div>
+            <div class="trailhead-block flex-box justify-evenly">
+                <img src={badge} alt="Bagde">
+                <div class="badges"> <div class="value huge-font">{tallyCount.badge}</div> <p>Badges</p> </div>
+                <div class="points"> <div class="value huge-font">{tallyCount.point}</div> <p>Points</p> </div>
+                <div class="trails"> <div class="value huge-font">{tallyCount.trail}</div> <p>Trails</p> </div>
+            </div>
+            <div class="gap-between"></div>
+            <h3>Certifications</h3>
+            <div class="small-gap-between"></div>
+            <div class="certs-block flex-box justify-evenly">
+                <img src={pdevcert} alt="Cert">
+                <img src={admincert} alt="Cert">
+            </div>
+        </div>
+
+        <div class="experience-scroll huge-gap-between"></div>
+
+        <div class="darker-tile zero-index">
+            <div class="essentials bg-index">
+                <img src={dottedLine} alt="Design" class="inverted-shape dotted-line-1">
+                <img src={dottedLine} alt="Design" class="inverted-shape dotted-line-1-1">
+                <img src={dottedLine} alt="Design" class="inverted-shape dotted-line-1-2">
+            </div>
+            <div class="experience container fg-index">
+                <h2>Experience</h2>
+                <div class="exp-header flex-box justify-evenly">
+                    <div class="exp-value justify-center"> <div>{yearsofexp}</div> <p class="large-font">Years of experience in working</p> </div>
+                    <div class="divider"></div>
+                    <div class="exp-name huge-font">Salesforce</div>
+                </div>
+                <div class="gap-between"></div>
+                <div class="exp-body">
+                    <ul>
+                        <li>
+                            <div class="flex-box"> <div class="dot"></div> <h3>Salesforce</h3> </div>
+                            <div class="normal-font" key={item.id} for:item="item" for:each={salesforceexp}>
+                                <p> <span key={i} class={i.mark} for:each={item} for:item="i">{i.text}</span></p> 
+                                <div class="small-gap-between"></div>
+                            </div>
+                        </li>
+                        <div class="small-gap-between"></div>
+                        <li>
+                            <div class="flex-box"> <div class="dot"></div> <h3>Automation</h3> </div>                            
+                            <div class="normal-font" key={item.id} for:item="item" for:each={automationexp}>
+                                <p> <span key={i} class={i.mark} for:each={item} for:item="i">{i.text}</span></p> 
+                                <div class="small-gap-between"></div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="gap-between"></div>
+                    <div class="education-scroll gap-between"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mountain"> <img src={mountain} alt="BG"> </div>
+        <div class="large-gap-between"></div>
+
+        <div class="education container fg-index">
+            <h2>Education</h2> <div class="underline"></div>
+            <div class="gap-between"></div>
+            <div class="timeline">
+                <div class="educationData flex-box">
+                    <div> <div class="dot"></div> <div class="line"></div> </div>
+                    <div class="timeline-item right">
+                        <div class="flex-box">
+                            <h3 class="year large-font">{btech.year}</h3>
+                            <h3 class="type large-font">{btech.type}</h3>
+                        </div>
+                        <div class="small-gap-between"></div>
+                        <p class="normal-font">
+                            <span key={i} class={i.mark} for:each={btech.detail} for:item="i">{i.text}</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="small-gap-between"></div>
+                <div class="educationData flex-box">
+                    <div> <div class="dot"></div> <div class="line"></div> </div>
+                    <div class="timeline-item left one">
+                        <div class="flex-box">
+                            <h3 class="type large-font">{hsc.type}</h3>
+                            <h3 class="year large-font">{hsc.year}</h3>                            
+                        </div>
+                        <div class="small-gap-between"></div>
+                        <p class="normal-font">
+                            <span key={i} class={i.mark} for:each={hsc.detail} for:item="i">{i.text}</span>                            
+                        </p>
+                    </div>
+                    <div class="timeline-item left two">
+                        <div class="flex-box">
+                            <h3 class="year large-font">{hsc.year}</h3>                             
+                            <h3 class="type large-font">{hsc.type}</h3>
+                        </div>
+                        <div class="small-gap-between"></div>
+                        <p class="normal-font">
+                            <span key={i} class={i.mark} for:each={hsc.detail} for:item="i">{i.text}</span>                            
+                        </p>
+                    </div>
+                </div>
+                <div class="small-gap-between"></div>
+                <div class="educationData flex-box">
+                    <div> <div class="dot"></div> <div class="line"></div> </div>
+                    <div class="timeline-item right">
+                        <div class="flex-box">
+                            <h3 class="year large-font">{ssc.year}</h3>
+                            <h3 class="type large-font">{ssc.type}</h3>
+                        </div>
+                        <div class="small-gap-between"></div>
+                        <p class="normal-font">
+                            <span key={i} class={i.mark} for:each={ssc.detail} for:item="i">{i.text}</span>                            
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="huge-gap-between"></div>
+
+        <div class="hobby container fg-index">
+            <div class="hobbies">
+                <div class="heading-box"> <h2>Hobbies</h2> </div>
+                <div class="gap-between"></div>
+                <ul> 
+                    <li class="pointer-para normal-font" key={item.id} for:item="item" for:each={hobbies}> 
+                        <div class="dash"></div> 
+                        <p> <span key={i} class={i.mark} for:each={item} for:item="i">{i.text}</span> </p> 
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="gap-between"></div>
+
+        <div class="contact darker-tile container zero-index">
+            <div class="essentials bg-index">
+                <img src={blurDots} alt="Design" class="inverted-shape blur-dots-1">
+                <img src={blurDots} alt="Design" class="inverted-shape blur-dots-1-1">
+            </div>
+            <div class="small-gap-between"></div>
+            <div class="contact-block flex-box justify-evenly fg-index">
+                <header class="normal-font">
+                    <h2 class="one">Contact Me <div class="underline"></div> </h2>
+                    <label>Full Name</label> <br/>
+                    <textarea class="name small-font" maxlength="30" name="fullname" rows="1" placeholder="your name" spellcheck="false" onchange={updateTextarea}></textarea> <br/>
+                    <label>Email</label> <br/>
+                    <textarea class="email small-font" maxlength="30" name="email" rows="1" placeholder="your email ID" spellcheck="false" onchange={updateTextarea}> </textarea> <br/>
+                    <template if:true={isValid.error}> <div class="errorMsg small-font">{toastMessage.errorMsg}</div> </template>
+                    <label>Message</label> <br/>
+                    <textarea class="message small-font" maxlength="200" name="message" placeholder="Please let me know what you have in mind..." onchange={updateTextarea}></textarea> <br/>
+                    <a href="#" class="btn small-font" onclick={sendMail}>Send Mail</a>
+                    <template class="mailsentMsg" if:true={isValid.mail}> <div class="mailsentMsg small-font">{toastMessage.mailsentMsg}</div> </template>
+                </header>
+                <div class="divider"></div>                
+                <footer class="normal-font">
+                    <h2 class="two">Contact Me <div class="underline"></div> </h2>
+                    <div class="gap-between"></div>
+                    <div class="gmail flex-box">
+                        <lightning-icon icon-name={gmail.icon} name="mail" alternative-text="O" size="x-small" onmouseenter={handleMouseEnter} onmouseleave={handleMouseLeave} onclick={copyData}></lightning-icon>
+                        <p>{gmail.name}</p>
+                    </div>
+                    <div class="phone flex-box">
+                        <lightning-icon icon-name={phone.icon} name="phone" alternative-text="O" size="x-small" onmouseenter={handleMouseEnter} onmouseleave={handleMouseLeave} onclick={copyData}></lightning-icon>
+                        <p>{phone.name}</p>
+                    </div>
+                    <div class="locale flex-box">
+                        <lightning-icon icon-name={locale.icon} name="locale" alternative-text="O" size="x-small" onmouseenter={handleMouseEnter} onmouseleave={handleMouseLeave} onclick={copyData}></lightning-icon>
+                        <p>{locale.name}</p>
+                    </div>
+                    <div class="gap-between"></div>
+                    <div class="contact-icons flex-box justify-evenly">
+                        <div class="dash"></div>
+                        <div key={icon} for:item="icon" for:each={socialMediaLinks}>
+                            <img src={icon.image} data-link={icon.link} alt="O" onclick={openProfile}/>
+                        </div>
+                        <div class="dash"></div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div> </div>
+    </div>
+</template>
